@@ -1,0 +1,119 @@
+@import "../../mixins.scss";
+.profileWrapper {
+  display: flex;
+  width: 100%;
+  height: auto;
+  .profileLeft {
+    flex: 3;
+    overflow-y: scroll;
+    margin-bottom: 120px;
+    &::-webkit-scrollbar {
+        width: 5px;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background-color: gray;
+        border-radius: 999px;
+      }
+    .userInfo {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 95%;
+      h2 {
+        font-weight: 500;
+      }
+      button {
+        padding: 8px 20px;
+        border: none;
+        outline: none;
+        font-size: 15px;
+        font-weight: 500;
+        font-family: "Open Sans", sans-serif;
+        background-color: #ffd500;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+    }
+    .userDetails {
+      width: 95%;
+      margin-top: 20px;
+      .avatar,
+      .userName,
+      .email {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        margin-top: 10px;
+        img {
+          width: 40px;
+          height: 40px;
+          border-radius: 100%;
+          object-fit: cover;
+        }
+        span,
+        b {
+          font-size: 16px;
+        }
+        b {
+          font-weight: 600;
+        }
+      }
+      .userName{
+        text-transform: capitalize;
+      }
+      .logout{
+        padding: 9px 20px;
+        background-color: teal;
+        border: none;
+        outline: navajowhite;
+        margin-top: 20px;
+        color: white;
+        cursor: pointer;
+        border-radius: 4px;
+        font-size: 15px;
+        font-weight: 500;
+        font-family: "Open Sans", sans-serif;
+      }
+    }
+    .myList {
+      width: 100%;
+    
+      margin-top: 20px;
+      border: 1px solid rgb(116, 116, 116);
+      .listHeading {
+        width: 95%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        h2 {
+          font-weight: 500;
+        }
+        button {
+          padding: 8px 20px;
+          border: none;
+          outline: none;
+          font-size: 15px;
+          font-weight: 500;
+          font-family: "Open Sans", sans-serif;
+          background-color: #ffd500;
+          border-radius: 4px;
+          cursor: pointer;
+        }
+      }
+    }
+    .savedList {
+      width: 100%;
+      border: 1px solid red;
+      margin-top: 20px;
+      h2 {
+        font-weight: 500;
+      }
+    }
+  }
+  .profileRight {
+    flex: 2;
+    height: 100%;
+    background-color: #fcf5f3;
+  }
+}

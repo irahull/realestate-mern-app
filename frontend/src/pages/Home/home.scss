@@ -1,0 +1,70 @@
+@import "../../mixins.scss";
+.homeSection {
+  width: 100%;
+  height: calc(100vh - 80px);
+  font-family: "Open Sans", sans-serif;
+  //   background-color: red;
+  @include dflex();
+  .homeLeft {
+    flex: 3;
+    .homeLeftWrapper {
+      @include dflex();
+      flex-direction: column;
+      gap: 25px;
+      padding-right: 100px;
+      @include md{
+          gap: 30px;
+          padding: 0px 20px;
+    }
+      @include sm{
+          gap: 20px;
+          padding: 0px 0px;
+    }
+      h1 {
+        font-size: 60px;
+        line-height: 1;
+        @include lg{
+            font-size: 40px;
+        }
+        @include sm{
+            font-size: 35px;
+        }
+      }
+      p {
+        font-size: 17px;
+      }
+      .homeBottom {
+        width: 100%;
+        @include dflex();
+        justify-content: space-between;
+        .homeBox {
+          h2 {
+            font-size: 30px;
+          }
+          h3 {
+            font-size: 16px;
+            font-weight: 400;
+          }
+        }
+      }
+    }
+  }
+  .homeRight {
+    flex: 2;
+    height: 100%;
+    background-color: #fcf5f3;
+    position: relative;
+    @include dflex();
+    @include md{
+        display: none;
+    }
+    img {
+      width: 115%;
+      position: absolute;
+      right: 0;
+      @include lg{
+        width: 110%;
+    }
+    }
+  }
+}

@@ -1,0 +1,23 @@
+@import "../mixins.scss";
+.layout-main {
+  max-width: 1350px;
+  height: 100vh;
+  margin: 0px auto;
+  padding: 0px 20px;
+  // position: relative;
+ 
+  // background-color: yellow;
+  @include lg {
+    // background-color: rgb(202, 202, 202);
+
+    max-width: 1300px;
+  }
+  @include md {
+    // background-color: green;
+    max-width: 780px;
+  }
+  @include sm {
+    max-width: 640px;
+    background-color: white;
+  }
+}

@@ -1,0 +1,93 @@
+@import "../../mixins.scss";
+.filter {
+  width: 90%;
+  font-family: "Open Sans", sans-serif;
+  .filterTitle {
+    font-size: 18px;
+  }
+  .filterBox {
+    margin-top: 8px;
+    @include dflex();
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+    span {
+      font-size: 13px;
+      font-weight: 400;
+      text-align: left;
+    }
+    input {
+      width: 100%;
+      padding: 8px 10px;
+      font-size: 18px;
+      border: 1px solid lightgray;
+      outline: none;
+      font-weight: 400;
+      border-radius: 5px;
+      font-family: "Open Sans", sans-serif;
+    }
+  }
+  .filterCategory {
+    margin-top: 15px;
+    @include dflex();
+    width: 100%;
+    height: 100%;
+    gap: 15px;
+    .filterType,
+    .filterProperty {
+      @include dflex();
+      align-items: flex-start;
+      flex-direction: column;
+      width: 16%;
+      label {
+        font-size: 13px;
+        margin-left: 3px;
+      }
+      select {
+        width: 100%;
+        padding: 6px 10px;
+        font-size: 18px;
+        font-family: Inter;
+        outline: none;
+        border: 1px solid lightgray;
+        border-radius: 4px;
+      
+      }
+    }
+    .filterMin,
+    .filterMax,
+    .filterBedroom {
+      width: 16%;
+      @include dflex();
+      align-items: flex-start;
+      flex-direction: column;
+      font-family: "Open Sans", sans-serif;
+      label {
+        font-size: 13px;
+        margin-left: 3px;
+      }
+      input {
+        padding: 7px 10px;
+        width: 100%;
+        font-size: 18px;
+        outline: none;
+        border-radius: 4px;
+        border: 1px solid lightgray;
+        font-family: "Open Sans", sans-serif;
+      }
+    }
+    .filterSearch{
+      @include dflex();
+    padding: 8px 20px;
+      margin-bottom: -12px;
+      // border: 1px solid red;
+      background-color: #fdd76a;
+      border-radius: 4px;
+      cursor: pointer;
+      img{
+        width: 80%;
+        // height: 100%;
+      }
+    }
+  }
+}

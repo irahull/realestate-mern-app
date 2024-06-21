@@ -1,0 +1,137 @@
+.chatWrapper {
+  width: 100%;
+  height: 100vh;
+  padding: 0px 10px;
+  display: flex;
+  // align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  h2 {
+    font-weight: 500;
+  }
+  .messageBox {
+    margin-top: 10px;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    width: 100%;
+    overflow-y: scroll;
+    gap: 20px;
+    padding: 10px;
+    &::-webkit-scrollbar {
+      width: 5px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: gray;
+      border-radius: 999px;
+    }
+    .message {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 15px 10px;
+      background-color: white;
+      border-radius: 4px;
+      cursor: pointer;
+      img {
+        width: 30px;
+        height: 30px;
+        border-radius: 999px;
+        object-fit: cover;
+      }
+      b {
+        font-weight: 500;
+        font-size: 16px;
+      }
+      p {
+        font-weight: 400;
+        font-size: 16px;
+      }
+    }
+  }
+  .chatBox {
+    flex: 2;
+    margin-bottom: 85px;
+    background-color: white;
+    .chatUser {
+      padding: 10px 20px;
+      background-color: #ffebcd;
+      margin: 0px auto;
+      width: 100%;
+      height: 15%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      img {
+        width: 40px;
+        height: 40px;
+        object-fit: cover;
+        border-radius: 999px;
+      }
+      .chatUserName {
+        font-weight: 500;
+      }
+      span {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        svg {
+          font-size: 25px;
+        }
+      }
+    }
+    .chatMessages {
+      height: 70%;
+      display: flex;
+      width: 100%;
+      flex-direction: column;
+      overflow-y: scroll;
+      &::-webkit-scrollbar {
+        width: 5px;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background-color: gray;
+        border-radius: 999px;
+      }
+      .chatting {
+        width: 50%;
+        padding: 8px 20px;
+        font-size: 13px;
+        text-align: left;
+        &.own {
+          align-self: flex-end;
+          text-align: right;
+        }
+        span{
+            font-size: 10px;
+        }
+      }
+    }
+    .sendButton {
+      width: 100%;
+      height: 14%;
+
+      input {
+        width: 80%;
+        height: 100%;
+        border: 2px solid #ffebcd;
+        outline: none;
+        font-size: 18px;
+        border-top-left-radius: 4px;
+        border-bottom-left-radius: 4px;
+        padding: 7px 10px;
+      }
+      button {
+        width: 20%;
+        height: 100%;
+        font-size: 18px;
+        border: none;
+        background-color: #ffebcd;
+        cursor: pointer;
+      }
+    }
+  }
+}

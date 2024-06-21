@@ -1,0 +1,211 @@
+@import "../../mixins.scss";
+
+.navbar-main {
+  width: 100%;
+  height: 80px;
+  z-index: 5;
+  position: relative;
+  
+    // background-color: red;
+  @include dflex();
+  font-family: "Open Sans", sans-serif;
+  justify-content: space-between;
+  .nav-left {
+    flex: 3;
+    height: 100%;
+    @include dflex();
+    justify-content: flex-start;
+    gap: 30px;
+    .nav-logo {
+      @include dflex();
+      transition: 0.3s ease;
+      gap: 2px;
+      &:hover{
+        transform: scale(1.03);
+      }
+      
+      .main-logo {
+        width: 30px;
+      }
+      span {
+        font-size: 30px;
+        font-weight: 700;
+        @include md{
+          display: none;
+        }
+        @include sm{
+          display: block;
+        }
+      }
+    }
+    .nav-menu {
+      gap: 25px;
+      @include dflex();
+      @include fontStyle(18px, 500);
+      font-family: "Open Sans", sans-serif;
+      @include sm {
+        display: none;
+      }
+      @include lg{
+        @include fontStyle(17px, 500);
+      }
+      .nav-item {
+        font-size: 19px;
+        transition: 0.3s ease;
+        cursor: pointer;
+        &:hover{
+          transform: scale(1.05);
+        }
+        
+      }
+    }
+  }
+  .nav-right {
+    flex: 2;
+    height: 100%;
+    background-color: #fcf5f3;
+    @include dflex();
+    justify-content: flex-end;
+
+    .userInfo{
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding-right: 15px;
+      img{
+        width: 50px;
+        height: 50px;
+        border-radius: 100%;
+        object-fit: cover;
+      }
+      b{
+        font-size: 17px;
+        font-weight: 600;
+        transition: 0.3s ease-in-out;
+        text-transform: capitalize;
+        &:hover{
+          transform: scale(1.02);
+        }
+      }
+      .profileBtn{
+        width: max-content;
+        background-color: rgb(255, 213, 0);
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 5px;
+        span{
+          position: absolute;
+          top: -10px;
+          right: -9px;
+          width: 20px;height: 20px;
+          border-radius: 100%;
+          background-color: red;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: white;
+          font-family: "Open Sans", sans-serif;
+          z-index: 2;
+          
+        }
+        button{
+          border: none;
+          padding: 7px 20px;
+          border-radius: 5px;
+          background-color: transparent;
+          transition: 0.3s ease;
+          cursor: pointer;
+          font-family: "Open Sans", sans-serif;
+          @include fontStyle(18px, 500);
+          &:hover{
+            transform: scale(1.03);
+          }
+        }
+      }
+    }
+    .nav-button {
+      padding-right: 15px;
+      width: 100%;
+      height: 100%;
+      @include dflex();
+      gap: 20px;
+      justify-content: flex-end;
+      position: relative;
+      z-index: 2;
+      @include sm {
+        display: none;
+      }
+      button {
+        border: none;
+        padding: 8px 20px;
+        border-radius: 5px;
+        background-color: transparent;
+        transition: 0.3s ease;
+        font-family: "Open Sans", sans-serif;
+        @include fontStyle(19px, 500);
+        cursor: pointer;
+        @include lg{
+          @include fontStyle(18px, 500);
+        }
+        &:hover{
+          transform: scale(1.05);
+        }
+        &:last-child {
+          background-color: rgb(255, 213, 0);
+        }
+       
+      }
+    }
+    .nav-icon {
+      display: none;
+      width: 50px;
+      height: 50px;
+      position: relative;
+      z-index: 2;
+      @include sm {
+        display: block;
+      }
+
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+    .mobile-menu {
+      position: absolute;
+      width: 50%;
+      background-color: black;
+      color: white;
+      height: 100%;
+      top: 0;
+      @include dflex();
+      flex-direction: column;
+      gap: 50px;
+      visibility: hidden;
+      opacity: 0;
+      transition: 0.5s ease;
+      right: -102%;
+      font-family: "Open Sans", sans-serif;
+  
+      
+      .mobile-item {
+        transition: 0.3s ease;
+        font-size: 24px;
+        &:hover{
+          transform: scale(1.05);
+        }
+        
+      }
+      &.active {
+        right: 0;
+      }
+      @include sm {
+        visibility: visible;
+        opacity: 1;
+      }
+    }
+   
+  }
+}

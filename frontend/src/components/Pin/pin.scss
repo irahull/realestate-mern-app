@@ -1,0 +1,24 @@
+.popupWrapper{
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+    font-family: "Inter", sans-serif;
+    img{
+        width: 82px;
+
+    }
+    .textWrapper{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        text-align: center;
+        a{
+            font-size: 18px;
+        }
+        span, b{
+            font-size: 15px;
+        }
+    }
+}

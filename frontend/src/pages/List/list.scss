@@ -1,0 +1,47 @@
+@import "../../mixins.scss";
+.listSection {
+  width: 100%;
+  display: flex;
+  height: calc(100vh - 80px);
+  @include md{
+      flex-direction: column;
+  }
+
+  .listLeft {
+    height: 100%;
+    flex: 3;
+    padding: 0px 10px;
+    @include md{
+     flex: none;
+  }
+
+    .wrapper {
+      padding-bottom: 20px;
+      overflow-y: scroll;
+      width: 100%;
+      height: 100%;
+      &::-webkit-scrollbar {
+        width: 6px;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background-color: gray;
+        border-radius: 999px;
+      }
+
+    }
+    @include md{
+     flex: none;
+  }
+   
+  }
+  .listRight {
+    height: 100%;
+    flex: 2;
+    // border: 1px solid #eb0000;
+    background-color: #fcf5f3;
+    @include md{
+     display: none;
+   }
+  }
+}

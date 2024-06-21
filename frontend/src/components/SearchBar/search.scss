@@ -1,0 +1,96 @@
+@import "../../mixins.scss";
+.searchBar {
+  width: 100%;
+  display: flex;
+  // align-items: center;
+  justify-content: center;
+  flex-direction: column;
+ 
+  .type {
+    button {
+      border: 1px solid #998;
+      padding: 11px 25px;
+      font-size: 18px;
+      font-weight: 500;
+      cursor: pointer;
+      font-family: "Open Sans", sans-serif;
+      text-transform: capitalize;
+      @include lg{
+        font-size: 15px;
+      }
+      &:first-child {
+        border-right: none;
+        border-top-left-radius: 8px;
+        border-bottom: none;
+      }
+      &:last-child {
+        border-bottom: none;
+        border-top-right-radius: 8px;
+        border-left: none;
+      }
+      &.active {
+        background-color: black;
+        color: white;
+      }
+    }
+  }
+  .inpBox {
+    width: 100%;
+    @include dflex();
+    @include sm {
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    input {
+      padding: 12px;
+      border: 1px solid #998;
+      outline: none;
+      font-size: 18px;
+      font-weight: 500;
+      font-family: "Open Sans", sans-serif;
+      font-weight: 400;
+      @include lg{
+        font-size: 15px;
+      }
+    }
+    .location {
+      width: 40%;
+      @include sm {
+        width: 100%;
+        border-radius: 5px;
+      }
+    }
+    .minVal {
+      width: 25%;
+      @include sm {
+        width: 100%;
+        border-radius: 5px;
+      }
+    }
+    .maxVal {
+      width: 25%;
+      @include sm {
+        width: 100%;
+        border-radius: 5px;
+      }
+    }
+    .searchIcon {
+      width: 10%;
+      height: 100%;
+      background-color: #FFD500;
+      @include dflex();
+      border-top-right-radius: 3px;
+      border-bottom-right-radius: 3px;
+      @include sm {
+     width: 100%;
+      }
+      img {
+        padding: 10px;
+        @include lg {
+          padding: 7px;
+        }
+      }
+    }
+  }
+}

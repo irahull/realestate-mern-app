@@ -1,0 +1,81 @@
+@import "../../mixins.scss";
+.card {
+  width: 95%;
+  height: 40%;
+  // border: 1px solid red;
+  margin-top: 25px;
+  @include dflex();
+  align-items: flex-start;
+  gap: 2%;
+  .cardLeft {
+    width: 45%;
+    height: 100%;
+    img {
+      width: 100%;
+      height: 100%;
+      border-radius: 10px;
+      object-fit: cover;
+    }
+  }
+  .cardRight {
+    width: 53%;
+    height: 100%;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    // border: 1px solid red;
+    justify-content: space-between;
+    gap: 20px;
+    h2 {
+      font-size: 22px;
+      font-weight: 500;
+    }
+    .location {
+      @include dflex();
+    }
+    .price {
+      font-size: 20px;
+      padding: 4px 10px;
+      border-radius: 4px;
+      background-color: blanchedalmond;
+    }
+    .cardBottom {
+      width: 90%;
+      @include dflex();
+      justify-content: space-between;
+      .rooms {
+        @include dflex();
+        gap: 10px;
+        svg {
+          font-size: 18px;
+        }
+        p {
+          @include dflex();
+          padding: 2px 5px;
+          border-radius: 4px;
+          background-color: whitesmoke;
+          gap: 10px;
+          span {
+            font-size: 12px;
+          }
+        }
+      }
+      .bookmark {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        span {
+          @include dflex();
+          padding: 4px 5px;
+          border-radius: 5px;
+          border: 1px solid lightgray;
+          transition: 0.3s ease-out;
+          cursor: pointer;
+          &:hover {
+            background-color: whitesmoke;
+          }
+        }
+      }
+    }
+  }
+}
