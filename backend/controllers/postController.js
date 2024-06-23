@@ -31,8 +31,11 @@ const addPost = async (req, res) => {
   try {
     const newPost = await prisma.post.create({
       data: {
-        ...inputs,
+        ...inputs.postData,
         userId: userTokenId,
+        postDetails:{
+          create : inputs.postDetails
+        }
       },
     });
 
