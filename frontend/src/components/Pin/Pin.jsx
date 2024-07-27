@@ -10,7 +10,7 @@ const Pin = ({ item }) => {
         <div className="popupWrapper">
           <img src={item.img} alt="" />
           <div className="textWrapper">
-            <Link to={`/${item.id}`}>{item.title}</Link>
+            <Link to={`/post/${item.id}`}>{item.title}</Link>
             <span className="bedCount">{item.bedroom} bedroom</span>
             <b>{item.price}</b>
           </div>

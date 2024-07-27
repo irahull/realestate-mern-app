@@ -8,12 +8,13 @@ import SinglePost from "./pages/SinglePost/SinglePost";
 import Profile from "./pages/Profile/Profile";
 import Login from "./pages/Login/Login";
 import Register from "./pages/Register/Register";
-import EditUser from "./components/EditUser/EditUser";
+import EditUser from "./utils/EditUser/EditUser";
+import AddPost from "./utils/AddPost/AddPost";
 
 const App = () => {
   const router = createBrowserRouter([
-    { 
-      path:"/",
+    {
+      path: "/",
       element: <AppLayout />,
       children: [
         {
@@ -36,7 +37,6 @@ const App = () => {
           path: "/post/:id",
           element: <SinglePost />,
         },
-    
       ],
     },
     {
@@ -46,6 +46,10 @@ const App = () => {
         {
           path: "/profile",
           element: <Profile />,
+        },
+        {
+          path: "/add",
+          element: <AddPost />,
         },
         {
           path: "/edit/:id",

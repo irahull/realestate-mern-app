@@ -4,7 +4,7 @@ const prisma = require("../utils/prisma");
 const getAllPost = async (req, res) => {
   try {
     const postDatas = await prisma.post.findMany();
-    res.status(200).json({data: postDatas });
+    res.status(200).json({ data: postDatas });
     console.log(postDatas);
   } catch (error) {
     res.status(400).json({ msg: "Failed to get all post" });
@@ -13,12 +13,21 @@ const getAllPost = async (req, res) => {
 
 // _________________________ Single Post _______________________________
 const getSinglePost = async (req, res) => {
-  const { id } = req.params.id;
+  const id = req.params.id;
   try {
-    const postData = await prisma.post.findUnique({ 
-      where:{id}
-     });
-    res.status(200).json({ success: true, data: postData });
+    const postData = await prisma.post.findUnique({
+      where: { id },
+      include: {
+        postDetails: true,
+        user: {
+          select: {
+            username: true,
+            avatar: true,
+          },
+        },
+      },
+    });
+    res.status(200).json({ data: postData });
   } catch (error) {
     res.status(400).json({ msg: "Failed to get  post" });
   }
@@ -33,9 +42,9 @@ const addPost = async (req, res) => {
       data: {
         ...inputs.postData,
         userId: userTokenId,
-        postDetails:{
-          create : inputs.postDetails
-        }
+        postDetails: {
+          create: inputs.postDetails,
+        },
       },
     });
 

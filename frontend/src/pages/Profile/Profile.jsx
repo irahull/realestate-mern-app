@@ -22,15 +22,13 @@ const Profile = () => {
         <div className="userInfo">
           <h2>User Information</h2>
           <Link to={`/edit/${currentUser?.id}`}>
-          <button>Update Profile</button></Link>
+            <button>Update Profile</button>
+          </Link>
         </div>
         <div className="userDetails">
           <div className="avatar">
             <span>Avatar:</span>
-            <img
-              src={currentUser?.avatar || "/avatar.png"}
-              alt=""
-            />
+            <img src={currentUser?.avatar || "/avatar.png"} alt="" />
           </div>
           <div className="userName">
             <span>Username:</span>
@@ -47,7 +45,9 @@ const Profile = () => {
         <div className="myList">
           <div className="listHeading">
             <h2>My List</h2>
-            <button>Add Post</button>
+            <Link to="/add">
+              <button>Add Post</button>
+            </Link>
           </div>
           <List />
         </div>

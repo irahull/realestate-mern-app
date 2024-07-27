@@ -1,0 +1,103 @@
+.addPostWrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  .apLeft {
+    flex: 3;
+    width: 100%;
+    height: 150%;
+    display: flex;
+    margin-top: 20px;
+    padding-bottom: 50px;
+    .apInp {
+        // overflow-y: scroll;
+      // padding-top: 20px;
+      width: 90%;
+      display: flex;
+      gap: 15px;
+      flex-direction: column;
+
+      input {
+        padding: 10px 10px;
+        outline: none;
+        font-family: Inter;
+        font-size: 16px;
+      }
+      .apPAC {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .apPrice {
+          width: 22%;
+        }
+        .apAddress {
+          width: 50%;
+        }
+        .apCity {
+          width: 26%;
+        }
+      }
+      .apDesc {
+        width: 100%;
+height: 200px;
+        span{
+            font-size: 14px;
+        }
+        .rquill{
+            width: 100%;
+            height:72%;
+        }
+        
+     
+      }
+
+      .apPUP {
+        width: 100%;
+        // height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+
+        .item {
+          width: 30%;
+          margin-top: 10px;
+          //   height: 100%;
+          display: flex;
+          flex-direction: column;
+          label {
+            font-size: 14px;
+            margin-left: 3px;
+          }
+          select {
+            padding: 10px 5px;
+            outline: none;
+            font-family: Inter;
+            font-size: 16px;
+          }
+        }
+        .saveBtn {
+          width: 65%;
+          button {
+            margin-top: 20px;
+            padding: 12px 10px;
+            outline: none;
+            cursor: pointer;
+            background-color: teal;
+            font-size: 16px;
+            border: none;
+            color: white;
+            border-radius: 4px;
+          }
+        }
+      }
+    }
+  }
+  .apRight {
+    flex: 2;
+  }
+}
