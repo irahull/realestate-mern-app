@@ -4,15 +4,24 @@ import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 
 const AddPost = () => {
+  const handleAddPost = (e) => {
+    e.preventDefault();
+    const formData = new FormData(e.target);
+
+    const inputs = Object.fromEntries(formData);
+    console.log(inputs);
+
+  }
   return (
     <div className="addPostWrapper">
       <div className="apLeft">
-        <div className="apInp">
-          <input type="text" placeholder="Post title" />
+        <h2>Add new post</h2>
+        <form className="apInp" onSubmit={handleAddPost}>
+          <input type="text" placeholder="Post title" name="title" />
           <div className="apPAC">
-            <input type="text" placeholder="Price" className="apPrice" />
-            <input type="text" placeholder="Address" className="apAddress" />
-            <input type="text" placeholder="City" className="apCity" />
+            <input type="text" placeholder="Price" className="apPrice" name="price" />
+            <input type="text" placeholder="Address" className="apAddress" name="address" />
+            <input type="text" placeholder="City" className="apCity" name="city" />
           </div>
           <div className="apDesc">
             <span>Post Description</span>
@@ -98,7 +107,7 @@ const AddPost = () => {
               <button>Save</button>
             </div>
           </div>
-        </div>
+        </form>
       </div>
       <div className="apRight">
         <div className="apImg">
