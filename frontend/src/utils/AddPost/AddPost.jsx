@@ -1,17 +1,56 @@
-import React from "react";
+import React, { useState } from "react";
 import "./addPost.scss";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
+import apiRequest from "../../helper/apiRequest";
+import Upload from "../../helper/upload";
 
 const AddPost = () => {
-  const handleAddPost = (e) => {
+  const [error, setError] = useState("")
+  const [desc, setDesc] = useState("")
+  const [images, setImages] = useState([])
+
+  const handleAddPost = async (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
 
     const inputs = Object.fromEntries(formData);
     console.log(inputs);
 
+    try {
+
+      const resp = await apiRequest.post("/posts/add", {
+        postData: {
+          title: inputs.title,
+          address: inputs.address,
+          city: inputs.city,
+          price: parseInt(inputs.price),
+          bedroom: parseInt(inputs.bedroom),
+          bathroom: parseInt(inputs.bathroom),
+          latitude: inputs.latitude,
+          longitude: inputs.longitude,
+          type: inputs.type,
+          property: inputs.property,
+          media: images
+        },
+        postDetails: {
+          desc: desc,
+          utilities: inputs.utilities,
+          petPolicy: inputs.petPolicy,
+          income: inputs.income,
+          size: parseInt(inputs.size),
+          school: parseInt(inputs.school),
+          bus: inputs.bus,
+          resturant: inputs.resturant,
+        }
+      })
+    } catch (error) {
+      console.log(error);
+      setError(error)
+    }
+
   }
+  console.log(desc);
   return (
     <div className="addPostWrapper">
       <div className="apLeft">
@@ -25,7 +64,7 @@ const AddPost = () => {
           </div>
           <div className="apDesc">
             <span>Post Description</span>
-            <ReactQuill theme="snow" className="rquill" />
+            <ReactQuill theme="snow" className="rquill" value={desc} onChange={setDesc} />
           </div>
           <div className="apPUP">
             <div className="item">
@@ -105,13 +144,16 @@ const AddPost = () => {
             </div>
             <div className="item saveBtn">
               <button>Save</button>
+              {
+                error && <span>{error}</span>
+              }
             </div>
           </div>
         </form>
       </div>
       <div className="apRight">
         <div className="apImg">
-          <input type="file" name="" id="" />
+          <Upload/>
         </div>
       </div>
     </div>
