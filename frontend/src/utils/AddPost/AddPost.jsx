@@ -4,11 +4,14 @@ import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import apiRequest from "../../helper/apiRequest";
 import Upload from "../../helper/upload";
+import { useNavigate } from "react-router-dom";
 
 const AddPost = () => {
   const [error, setError] = useState("")
   const [desc, setDesc] = useState("")
   const [images, setImages] = useState([])
+
+  const navigate = useNavigate()
 
   const handleAddPost = async (e) => {
     e.preventDefault();
@@ -44,6 +47,12 @@ const AddPost = () => {
           resturant: inputs.resturant,
         }
       })
+
+      if (resp.data.success === true) {
+        navigate('/post/'+ resp.data.data.id)
+      }
+
+      console.log(resp);
     } catch (error) {
       console.log(error);
       setError(error)
@@ -148,12 +157,28 @@ const AddPost = () => {
                 error && <span>{error}</span>
               }
             </div>
+
           </div>
         </form>
       </div>
       <div className="apRight">
+        <div className="imgDivv">
+        {
+          images.map((item, ind) => {
+            return <img src={item} alt="" key={ind} />
+          })
+        }
+        </div>
+       
         <div className="apImg">
-          <Upload/>
+          <Upload uwConfig={{
+            cloudName: "letsgrow121",
+            uploadPreset: "realState",
+            multiple: true,
+            maxImageSize: 2000000,
+            folder: "posts",
+          }}
+            setState={setImages} />
         </div>
       </div>
     </div>

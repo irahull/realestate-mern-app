@@ -3,7 +3,7 @@ import { createContext, useEffect, useState } from "react";
 // Create a context to manage the script loading state
 const CloudinaryScriptContext = createContext();
 
-export default function Upload({ uwConfig, setAvatar }) {
+export default function Upload({ uwConfig, setState }) {
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
@@ -32,7 +32,7 @@ export default function Upload({ uwConfig, setAvatar }) {
         (error, result) => {
           if (!error && result && result.event === "success") {
             console.log("Done! Here is the image info: ", result.info);
-            setAvatar(result.info.url)
+            setState(prev => [...prev, result.info.url])
             console.log(result.info.url);
           }
         }

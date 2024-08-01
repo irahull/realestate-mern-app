@@ -7,7 +7,7 @@ import Upload from "../../helper/upload";
 
 const EditUser = () => {
   const { currentUser, updateUser } = useContext(Context);
-  const [avatar, setAvatar] = useState(currentUser.avatar);
+  const [avatar, setAvatar] = useState([]);
   const [err, setErr] = useState("");
 
   const navigate = useNavigate();
@@ -22,7 +22,7 @@ const EditUser = () => {
         username,
         email,
         password,
-        avatar
+        avatar:avatar[0]
       });
 
       updateUser(res.data.data);
@@ -59,7 +59,7 @@ const EditUser = () => {
         </form>
       </div>
       <div className="editUserRight">
-        <img src={avatar || "/avatar.png"} alt="" />
+        <img src={avatar[0] || currentUser.avatar || "/avatar.png"} alt="" />
 
         <div className="uploadFile">
           <Upload
@@ -70,7 +70,7 @@ const EditUser = () => {
               maxImageSize: 2000000,
               folder: "avatars",
             }}
-            setAvatar={setAvatar}
+            setState={setAvatar}
           />
         </div>
       </div>
