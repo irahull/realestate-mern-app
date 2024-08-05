@@ -49,7 +49,7 @@ const AddPost = () => {
       })
 
       if (resp.data.success === true) {
-        navigate('/post/'+ resp.data.data.id)
+        navigate('/post/' + resp.data.data.id)
       }
 
       console.log(resp);
@@ -163,13 +163,13 @@ const AddPost = () => {
       </div>
       <div className="apRight">
         <div className="imgDivv">
-        {
-          images.map((item, ind) => {
-            return <img src={item} alt="" key={ind} />
-          })
-        }
+          {
+            images.map((item, ind) => {
+              return <img src={item} alt="" key={ind} />
+            })
+          }
         </div>
-       
+
         <div className="apImg">
           <Upload uwConfig={{
             cloudName: "letsgrow121",

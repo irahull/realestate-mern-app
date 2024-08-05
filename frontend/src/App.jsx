@@ -10,6 +10,7 @@ import Login from "./pages/Login/Login";
 import Register from "./pages/Register/Register";
 import EditUser from "./utils/EditUser/EditUser";
 import AddPost from "./utils/AddPost/AddPost";
+import { getSinglePostDetails } from "./helper/getSinglePostDetails";
 
 const App = () => {
   const router = createBrowserRouter([
@@ -36,6 +37,7 @@ const App = () => {
         {
           path: "/post/:id",
           element: <SinglePost />,
+          loader:getSinglePostDetails,
         },
       ],
     },

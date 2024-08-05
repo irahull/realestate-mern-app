@@ -5,29 +5,32 @@ import { singlePostData, userData } from "../../data/data";
 import { CiBookmark, CiLocationOn } from "react-icons/ci";
 import Map from "../../components/Map/Map";
 import { FaRegMessage } from "react-icons/fa6";
+import { useLoaderData } from "react-router-dom";
 
 const SinglePost = () => {
+  const postData = useLoaderData()
+  console.log(postData);
   return (
     <div className="singlePost">
       <div className="spLeft">
-        <Slider images={singlePostData.images} />
+        <Slider images={postData.media} />
         <div className="infoSection">
           <div className="infoLeft">
-            <h2>{singlePostData.title}</h2>
+            <h2>{postData.title}</h2>
             <div className="spLocation">
               <span>
                 <CiLocationOn />
               </span>
-              {singlePostData.address}
+              {postData.address}
             </div>
-            <div className="spPrice"> &#x24;{singlePostData.price}</div>
+            <div className="spPrice"> &#x24;{postData.price}</div>
           </div>
           <div className="infoRight">
             <img src={userData.img} alt="" className="spUser" />
             <span>{userData.name}</span>
           </div>
         </div>
-        <div className="spPara">{singlePostData.description}</div>
+        <div className="spPara">{postData.postDetails.desc}</div>
       </div>
       <div className="spRight">
         <div className="spWrapper">
@@ -37,21 +40,21 @@ const SinglePost = () => {
               <img src="/utility.png" alt="" />
               <div className="utilityText">
                 <h4>Utilities</h4>
-                <span>Renter is responsible</span>
+                <span>{postData.postDetails.utilities}</span>
               </div>
             </div>
             <div className="pet">
               <img src="/pet.png" alt="" />
               <div className="petText">
                 <h4>Pet Policy</h4>
-                <span>Pet are allowed</span>
+                <span>{postData.postDetails.petPolicy}</span>
               </div>
             </div>
             <div className="fee">
               <img src="/fee.png" alt="" />
               <div className="feeText">
                 <h4>Property Fees</h4>
-                <span>Must have 3x the rent in total household income</span>
+                <span>{postData.postDetails.income}</span>
               </div>
             </div>
           </div>
@@ -60,15 +63,15 @@ const SinglePost = () => {
           <div className="sizeBox">
             <div className="size">
               <img src="/size.png" alt="" />
-              <span>80 sqft</span>
+              <span>{postData.postDetails.size} sqft</span>
             </div>
             <div className="size">
               <img src="/bed.png" alt="" />
-              <span>2 beds</span>
+              <span>{postData.bedroom}</span>
             </div>
             <div className="size">
               <img src="/bath.png" alt="" />
-              <span>1 bathroom</span>
+              <span>{postData.bathroom}</span>
             </div>
           </div>
 
@@ -78,28 +81,28 @@ const SinglePost = () => {
               <img src="/school.png" alt="" />
               <div className="featureText">
                 <span>School</span>
-                <p>250m away</p>
+                <p>{postData.postDetails.school}</p>
               </div>
             </div>
             <div className="feature">
               <img src="/pet.png" alt="" />
               <div className="featureText">
                 <span>Bus Stop</span>
-                <p>100m away</p>
+                <p>{postData.postDetails.bus}m away</p>
               </div>
             </div>
             <div className="feature">
               <img src="/fee.png" alt="" />
               <div className="featureText">
                 <span>Restaurant</span>
-                <p>200m away</p>
+                <p>{postData.postDetails.bus}m away</p>
               </div>
             </div>
           </div>
           <p>Location</p>
           <div className="mapBox">
             <Map item={[singlePostData]} />
-            </div>
+          </div>
           <div className="spButtons">
             <div className="messageBtn">
               <FaRegMessage />
