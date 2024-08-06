@@ -1,11 +1,11 @@
 import React from "react";
 import "./singlePost.scss";
 import Slider from "../../components/Slider/Slider";
-import { singlePostData, userData } from "../../data/data";
 import { CiBookmark, CiLocationOn } from "react-icons/ci";
 import Map from "../../components/Map/Map";
 import { FaRegMessage } from "react-icons/fa6";
 import { useLoaderData } from "react-router-dom";
+import DOMPurify from 'dompurify';
 
 const SinglePost = () => {
   const postData = useLoaderData()
@@ -26,11 +26,11 @@ const SinglePost = () => {
             <div className="spPrice"> &#x24;{postData.price}</div>
           </div>
           <div className="infoRight">
-            <img src={userData.img} alt="" className="spUser" />
-            <span>{userData.name}</span>
+            <img src={postData.user.avatar || "/avatar.png"} alt="" className="spUser" />
+            <span>{postData.user.username}</span>
           </div>
         </div>
-        <div className="spPara">{postData.postDetails.desc}</div>
+        <div className="spPara" dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(postData.postDetails.desc) }}></div>
       </div>
       <div className="spRight">
         <div className="spWrapper">
@@ -101,7 +101,7 @@ const SinglePost = () => {
           </div>
           <p>Location</p>
           <div className="mapBox">
-            <Map item={[singlePostData]} />
+            <Map item={[postData]} />
           </div>
           <div className="spButtons">
             <div className="messageBtn">

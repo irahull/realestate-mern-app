@@ -101,6 +101,17 @@
     align-items: center;
     justify-content: space-between;
     flex-direction: column;
+    // border: 1px solid red;
+    // overflow-y: scroll;
+    gap: 0.5vw;
+    &::-webkit-scrollbar {
+      width: 6px;
+    }
+  
+    &::-webkit-scrollbar-thumb {
+      background-color: rgb(202, 202, 202);
+      border-radius: 999px;
+    }
     @include sm{
       flex-direction: row;
       flex: none;

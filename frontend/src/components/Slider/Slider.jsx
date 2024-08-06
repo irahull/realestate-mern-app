@@ -24,7 +24,7 @@ const Slider = ({ images }) => {
     <div className="sliderWrapper">
       {imgIndex !== null ? (
         <div className="imgGallery">
-          <div className="imgClose" onClick={()=> setImgIndex(null)}>
+          <div className="imgClose" onClick={() => setImgIndex(null)}>
             <RxCross2 />
           </div>
           <div className="prev" onClick={() => handleSlide("prev")}>
@@ -41,7 +41,7 @@ const Slider = ({ images }) => {
           <div className="bigImage">
             <img src={images[0]} alt="" onClick={() => setImgIndex(0)} />
           </div>
-          <div className="smallImages">
+          <div className="smallImages" style={{ overflowY: "scroll" }}>
             {images.slice(1).map((item, ind) => {
               return (
                 <img
@@ -49,6 +49,7 @@ const Slider = ({ images }) => {
                   alt=""
                   key={ind}
                   onClick={() => setImgIndex(ind + 1)}
+
                 />
               );
             })}
