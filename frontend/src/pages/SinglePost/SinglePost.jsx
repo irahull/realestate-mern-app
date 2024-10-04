@@ -47,7 +47,7 @@ const SinglePost = () => {
               <img src="/pet.png" alt="" />
               <div className="petText">
                 <h4>Pet Policy</h4>
-                <span>{postData.postDetails.petPolicy}</span>
+                <span>{postData.postDetails.petPolicy === "allowed" ? "Pets are allowed":"Pets are not allowed"}</span>
               </div>
             </div>
             <div className="fee">
