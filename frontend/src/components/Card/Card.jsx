@@ -7,10 +7,11 @@ import { CiBookmark } from "react-icons/ci";
 import { FaRegMessage } from "react-icons/fa6";
 
 const Card = ({item}) => {
+  console.log(item)
   return (
     <div className='card' key={item.id}>
         <div className="cardLeft">
-          <img src={item.img} alt="" />
+          <img src={item.media} alt="" />
         </div>
         <div className="cardRight">
           <h2>{item.title}</h2>
@@ -18,7 +19,7 @@ const Card = ({item}) => {
             <CiLocationOn />
             <span>{item.address}</span>
           </div>
-        <div className="price">&#x24;{item.price}</div>
+        <div className="price"> &#8377;{item.price}</div>
         <div className="cardBottom">
           <div className="rooms">
           <p><IoBedOutline /> <span>{item.bedroom} Bedroom</span> </p>

@@ -8,7 +8,11 @@ const Map = ({ item }) => {
   // const position = [51.50, -0.09]
   return (
     <MapContainer
-      center={[52.4749, -1.90269]}
+      center={
+        item.length === 1
+          ? [item[0].latitude, item[0].longitude]
+          : [28.7041,  77.1025]
+      }
       zoom={7}
       scrollWheelZoom={false}
       key={item.id}

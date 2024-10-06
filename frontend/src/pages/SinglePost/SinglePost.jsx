@@ -23,7 +23,7 @@ const SinglePost = () => {
               </span>
               {postData.address}
             </div>
-            <div className="spPrice"> &#x24;{postData.price}</div>
+            <div className="spPrice"> &#8377;{postData.price}</div>
           </div>
           <div className="infoRight">
             <img src={postData.user.avatar || "/avatar.png"} alt="" className="spUser" />
@@ -67,11 +67,11 @@ const SinglePost = () => {
             </div>
             <div className="size">
               <img src="/bed.png" alt="" />
-              <span>{postData.bedroom}</span>
+              <span>{postData.bedroom} bedroom</span>
             </div>
             <div className="size">
               <img src="/bath.png" alt="" />
-              <span>{postData.bathroom}</span>
+              <span>{postData.bathroom} bathroom</span>
             </div>
           </div>
 
@@ -81,7 +81,7 @@ const SinglePost = () => {
               <img src="/school.png" alt="" />
               <div className="featureText">
                 <span>School</span>
-                <p>{postData.postDetails.school}</p>
+                <p>{postData.postDetails.school}m away</p>
               </div>
             </div>
             <div className="feature">

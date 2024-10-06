@@ -2,10 +2,23 @@ const prisma = require("../utils/prisma");
 
 // _________________________ All Post _______________________________
 const getAllPost = async (req, res) => {
+  const query = req.query;
+  console.log(query);
   try {
-    const postDatas = await prisma.post.findMany();
+    const postDatas = await prisma.post.findMany({
+      where:{
+        city:query.city || undefined,
+        type:query.type || undefined,
+        property:query.property || undefined,
+        bedroom:query.bedroom || undefined,
+        price:{
+          gte: parseInt(query.minPrice) || 0,
+          lte: parseInt(query.maxPrice) || 100000,
+        }
+      }
+    });
     res.status(200).json({ data: postDatas });
-    console.log(postDatas);
+    // console.log(postDatas);
   } catch (error) {
     res.status(400).json({ msg: "Failed to get all post" });
   }
