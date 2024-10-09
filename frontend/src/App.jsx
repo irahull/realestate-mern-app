@@ -10,7 +10,8 @@ import Login from "./pages/Login/Login";
 import Register from "./pages/Register/Register";
 import EditUser from "./utils/EditUser/EditUser";
 import AddPost from "./utils/AddPost/AddPost";
-import { getSinglePostDetails, searchLoader } from "./helper/apiLoaders";
+import { getSinglePostDetails, getUserPosts, searchLoader } from "./helper/apiLoaders";
+import Error from "./pages/Error/Error";
 
 const App = () => {
   const router = createBrowserRouter([
@@ -31,6 +32,10 @@ const App = () => {
           element: <Register />,
         },
         {
+          path: "*",
+          element: <Error />,
+        },
+        {
           path: "/list",
           element: <List />,
           loader:searchLoader,
@@ -49,11 +54,15 @@ const App = () => {
         {
           path: "/profile",
           element: <Profile />,
-          loader:searchLoader,
+          loader:getUserPosts,
         },
         {
           path: "/add",
           element: <AddPost />,
+        },
+        {
+          path: "*",
+          element: <Error />,
         },
         {
           path: "/edit/:id",

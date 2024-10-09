@@ -3,6 +3,7 @@ import "./login.scss";
 import { useNavigate } from "react-router-dom";
 import apiRequest from "../../helper/apiRequest";
 import { Context } from "../../context/AppContext";
+import { toast } from "react-toastify";
 
 const Login = () => {
   const [err, setErr] = useState("");
@@ -24,7 +25,7 @@ const Login = () => {
         password,
       });
       if (res.data.success === true) {
-        alert("Login Successfull");
+        toast.success("Login Successfull");
         const data =  res.data.user
         updateUser(data);
         navigate("/");
@@ -32,6 +33,7 @@ const Login = () => {
     } catch (error) {
       // setErr(error.response.data.msg);
       console.log(error)
+      toast.warn("Enter correct username and password");
     } finally {
       setLoading(true);
     }

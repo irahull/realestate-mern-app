@@ -1,25 +1,56 @@
-import React from "react";
+import React, { Suspense } from "react";
 import "./list.scss";
 import Filter from "../../components/Filter/Filter";
 // import { listData } from "../../data/data";
 import Card from "../../components/Card/Card";
 import Map from "../../components/Map/Map";
-import { useLoaderData } from "react-router-dom";
+import { Await, useLoaderData } from "react-router-dom";
 
 const List = () => {
-  const posts = useLoaderData();
+  const data = useLoaderData();
+
+  const loaderStyle = {
+
+    zIndex: "10",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    fontSize: "25px",
+    width: "100%",
+    height: "65vh",
+  };
+
+  // console.log(posts);
   return (
     <section className="listSection">
       <div className="listLeft">
         <div className="wrapper">
           <Filter />
-          {posts.map((item) => {
-            return <Card item={item} />;
-          })}
+          <Suspense fallback={<p style={loaderStyle}>Loading...</p>}>
+            <Await
+              resolve={data.postResponse}
+              errorElement={<p style={loaderStyle}>Error loading posts!</p>}
+            >
+              {/* this calls back when the data is resolved */}
+              {(postResponse) =>
+                // console.log(postResponse.data.data)
+                postResponse.data.data.map((item) => {
+                  return <Card item={item} />;
+                })
+              }
+            </Await>
+          </Suspense>
         </div>
       </div>
       <div className="listRight">
-        <Map item={posts} />
+        <Suspense fallback={<p style={loaderStyle}>Loading...</p>}>
+          <Await
+            resolve={data.postResponse}
+            errorElement={<p style={loaderStyle}>Error loading posts!</p>}
+          >
+            {(postResponse) => <Map item={postResponse.data.data} />}
+          </Await>
+        </Suspense>
       </div>
     </section>
   );

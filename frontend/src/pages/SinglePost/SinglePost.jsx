@@ -5,10 +5,10 @@ import { CiBookmark, CiLocationOn } from "react-icons/ci";
 import Map from "../../components/Map/Map";
 import { FaRegMessage } from "react-icons/fa6";
 import { useLoaderData } from "react-router-dom";
-import DOMPurify from 'dompurify';
+import DOMPurify from "dompurify";
 
 const SinglePost = () => {
-  const postData = useLoaderData()
+  const postData = useLoaderData();
   console.log(postData);
   return (
     <div className="singlePost">
@@ -26,11 +26,20 @@ const SinglePost = () => {
             <div className="spPrice"> &#8377;{postData.price}</div>
           </div>
           <div className="infoRight">
-            <img src={postData.user.avatar || "/avatar.png"} alt="" className="spUser" />
+            <img
+              src={postData.user.avatar || "/avatar.png"}
+              alt=""
+              className="spUser"
+            />
             <span>{postData.user.username}</span>
           </div>
         </div>
-        <div className="spPara" dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(postData.postDetails.desc) }}></div>
+        <div
+          className="spPara"
+          dangerouslySetInnerHTML={{
+            __html: DOMPurify.sanitize(postData.postDetails.desc),
+          }}
+        ></div>
       </div>
       <div className="spRight">
         <div className="spWrapper">
@@ -40,14 +49,24 @@ const SinglePost = () => {
               <img src="/utility.png" alt="" />
               <div className="utilityText">
                 <h4>Utilities</h4>
-                <span>{postData.postDetails.utilities}</span>
+                <span
+                  style={{
+                    textTransform: "uppercase",
+                  }}
+                >
+                  {postData.postDetails.utilities} is responsible
+                </span>
               </div>
             </div>
             <div className="pet">
               <img src="/pet.png" alt="" />
               <div className="petText">
                 <h4>Pet Policy</h4>
-                <span>{postData.postDetails.petPolicy === "allowed" ? "Pets are allowed":"Pets are not allowed"}</span>
+                <span>
+                  {postData.postDetails.petPolicy === "allowed"
+                    ? "Pets are allowed"
+                    : "Pets are not allowed"}
+                </span>
               </div>
             </div>
             <div className="fee">

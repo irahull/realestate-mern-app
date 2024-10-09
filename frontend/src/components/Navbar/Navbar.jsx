@@ -19,7 +19,7 @@ const Navbar = () => {
           <Link to="/list" className="nav-item">
             Properties
           </Link>
-          <div className="nav-item">Services</div>
+          {/* <div className="nav-item">Services</div> */}
           <div className="nav-item">Contact</div>
         </div>
       </div>

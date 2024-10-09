@@ -8,10 +8,10 @@ const Filter = () => {
   const [query, setQuery] = useState({
     type: searchParams.get("type") || "",
     city: searchParams.get("city") || "",
-    property: searchParams.get("property") || "",
+    // property: searchParams.get("property") || "",
     maxPrice: searchParams.get("maxPrice") || 1000000,
     minPrice: searchParams.get("minPrice") || 0,
-    bedroom: searchParams.get("bedroom") || 1,
+    // bedroom: searchParams.get("bedroom") || 1,
   });
 
   const handleChange = (e) => {
@@ -49,12 +49,12 @@ const Filter = () => {
             defaultValue={query.type}
             onChange={handleChange}
           >
-            <option value="any">Any</option>
+            <option value="">Any</option>
             <option value="buy">Buy</option>
             <option value="rent">Rent</option>
           </select>
         </div>
-        <div className="filterProperty">
+        {/* <div className="filterProperty">
           <label htmlFor="property">Property</label>
           <select
             name="property"
@@ -67,7 +67,7 @@ const Filter = () => {
             <option value="buy">House</option>
             <option value="rent">Land</option>
           </select>
-        </div>
+        </div> */}
         <div className="filterMin">
           <label htmlFor="minPrice">MinPrice</label>
           <input
@@ -88,7 +88,7 @@ const Filter = () => {
             defaultValue={query.maxPrice}
           />
         </div>
-        <div className="filterBedroom">
+        {/* <div className="filterBedroom">
           <label htmlFor="bedroom">Bedroom</label>
           <input
             type="text"
@@ -97,7 +97,7 @@ const Filter = () => {
             onChange={handleChange}
             defaultValue={query.bedroom}
           />
-        </div>
+        </div> */}
         <div className="filterSearch" onClick={handleFilter}>
           <img src="/search.png" alt="" />
         </div>

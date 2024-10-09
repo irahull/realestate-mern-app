@@ -6,14 +6,15 @@
   justify-content: center;
   flex-direction: column;
  
-  .type {
+  .typeSelect {
     button {
       border: 1px solid #998;
       padding: 11px 25px;
       font-size: 18px;
       font-weight: 500;
       cursor: pointer;
-      font-family: "Open Sans", sans-serif;
+      // font-family: "Open Sans", sans-serif;
+      font-family: Poppins;
       text-transform: capitalize;
       @include lg{
         font-size: 15px;
@@ -48,7 +49,9 @@
       outline: none;
       font-size: 18px;
       font-weight: 500;
-      font-family: "Open Sans", sans-serif;
+      font-family: Poppins;
+
+      // font-family: "Open Sans", sans-serif;
       font-weight: 400;
       @include lg{
         font-size: 15px;
@@ -87,6 +90,7 @@
       }
       img {
         padding: 10px;
+        width: 78%;
         @include lg {
           padding: 7px;
         }

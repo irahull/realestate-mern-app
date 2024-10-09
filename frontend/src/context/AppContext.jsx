@@ -3,6 +3,7 @@ import React, { createContext, useContext, useEffect, useState } from "react";
 export const Context = createContext();
 
 export const AuthProvider = ({ children }) => {
+  const [loader, setLoader] = useState(false)
   const [currentUser, setCurrentUser] = useState(
     JSON.parse(localStorage.getItem("userData")) || null
   );
@@ -16,7 +17,7 @@ export const AuthProvider = ({ children }) => {
   }, [currentUser]);
 
   return (
-    <Context.Provider value={{ currentUser, updateUser }}>
+    <Context.Provider value={{ currentUser, updateUser, loader, setLoader }}>
       {children}
     </Context.Provider>
   );

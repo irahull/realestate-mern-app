@@ -5,19 +5,21 @@ import { IoBedOutline } from "react-icons/io5";
 import { LuBath } from "react-icons/lu";
 import { CiBookmark } from "react-icons/ci";
 import { FaRegMessage } from "react-icons/fa6";
+import { useNavigate } from 'react-router-dom';
 
 const Card = ({item}) => {
-  console.log(item)
+  const navigate = useNavigate()
+  // console.log(item)
   return (
     <div className='card' key={item.id}>
         <div className="cardLeft">
-          <img src={item.media} alt="" />
+          <img src={item.media[0]} alt="" />
         </div>
         <div className="cardRight">
-          <h2>{item.title}</h2>
+          <h2 onClick={()=> navigate(`/post/${item.id}`)}>{item.title}</h2>
           <div className="location">
             <CiLocationOn />
-            <span>{item.address}</span>
+            <span>{item.address},  {item.city}</span>          
           </div>
         <div className="price"> &#8377;{item.price}</div>
         <div className="cardBottom">

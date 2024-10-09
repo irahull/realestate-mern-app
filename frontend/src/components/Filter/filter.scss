@@ -1,7 +1,9 @@
 @import "../../mixins.scss";
 .filter {
   width: 90%;
-  font-family: "Open Sans", sans-serif;
+  // font-family: "Open Sans", sans-serif;
+  font-family: Poppins;
+
   .filterTitle {
     font-size: 18px;
   }
@@ -24,7 +26,9 @@
       outline: none;
       font-weight: 400;
       border-radius: 5px;
-      font-family: "Open Sans", sans-serif;
+      // font-family: "Open Sans", sans-serif;
+      font-family: Poppins;
+
     }
   }
   .filterCategory {
@@ -51,6 +55,8 @@
         outline: none;
         border: 1px solid lightgray;
         border-radius: 4px;
+        font-family: Poppins;
+
       
       }
     }
@@ -58,10 +64,12 @@
     .filterMax,
     .filterBedroom {
       width: 16%;
+      font-family: Poppins;
       @include dflex();
       align-items: flex-start;
       flex-direction: column;
-      font-family: "Open Sans", sans-serif;
+      // font-family: "Open Sans", sans-serif;
+
       label {
         font-size: 13px;
         margin-left: 3px;
@@ -73,7 +81,9 @@
         outline: none;
         border-radius: 4px;
         border: 1px solid lightgray;
-        font-family: "Open Sans", sans-serif;
+        // font-family: "Open Sans", sans-serif;
+        font-family: Poppins;
+
       }
     }
     .filterSearch{

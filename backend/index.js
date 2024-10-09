@@ -6,6 +6,7 @@ const authRoute = require("./routes/authRoute");
 const userRoute = require("./routes/userRoute");
 const postRoute = require("./routes/postRoute");
 const testRoute = require("./routes/testRoute");
+const messageRoute = require("./routes/messageRoute");
 const dotenv = require("dotenv");
 dotenv.config({ path: "./.env" });
 
@@ -20,6 +21,7 @@ app.use(cookieParser());
 app.use("/api/auth", authRoute);
 app.use("/api/user", userRoute);
 app.use("/api/posts", postRoute);
+app.use("/api/message", messageRoute);
 app.use("/api/", testRoute);
 
 // ______________________ Server ________________________

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./register.scss";
 import { useNavigate } from "react-router-dom";
 import apiRequest from "../../helper/apiRequest";
+import { toast } from "react-toastify";
 
 const Register = () => {
   const [err, setErr] = useState("");
@@ -26,7 +27,7 @@ const Register = () => {
         password,
       });
       if (res.data.success === true) {
-        alert("Registration Successfull");
+        toast.success("Registration Successfull");
         navigate("/login");
       }
     } catch (error) {

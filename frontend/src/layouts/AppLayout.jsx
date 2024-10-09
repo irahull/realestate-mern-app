@@ -3,6 +3,7 @@ import "./appLayout.scss";
 import Navbar from "../components/Navbar/Navbar";
 import { Navigate, Outlet } from "react-router-dom";
 import { Context } from "../context/AppContext";
+import Footer from "../components/footer/Footer";
 
 const AppLayout = () => {
   return (
@@ -13,6 +14,7 @@ const AppLayout = () => {
       <div className="content">
         <Outlet />
       </div>
+       <Footer/>
     </div>
   );
 };
@@ -29,6 +31,7 @@ const AuthLayout = () => {
       <div className="content">
         <Outlet />
       </div>
+      <Footer/>
     </div>
   );
 };

@@ -118,3 +118,105 @@ export const userData = {
   name: "John Doe",
   img: "https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
 };
+
+export const featured = [
+  {
+    cover: "../hero/h1.png",
+    name: "Family House",
+    total: "122 Property",
+  },
+  {
+    cover: "../hero/h2.png",
+    name: "House & Villa",
+    total: "155 Property",
+  },
+  {
+    cover: "../hero/h3.png",
+    name: "Apartment",
+    total: "300 Property",
+  },
+  {
+    cover: "../hero/h4.png",
+    name: "Office & Studio",
+    total: "80 Property",
+  },
+  {
+    cover: "../hero/h6.png",
+    name: "Villa & Condo",
+    total: "80 Property",
+  },
+];
+
+export const location = [
+  {
+    id: 1,
+    name: "Gurugram, Haryana",
+    Villas: "12 Flats",
+    Apartments: "10 Apartments",
+    Offices: "07 Offices",
+    cover: "./location/city-1.png",
+  },
+  {
+    id: 2,
+    name: "Benguluru, India",
+    Villas: "55 Flat",
+    Apartments: "101 Apartments",
+    Offices: "21 Offices",
+    cover: "./location/city-2.png",
+  },
+  {
+    id: 3,
+    name: "Amritsar, Punjab",
+    Villas: "12 Villas",
+    Apartments: " 10 Apartments",
+    Offices: "07 Offices",
+    cover: "./location/city-3.png",
+  },
+  {
+    id: 4,
+    name: "Chhatarpur, New Delhi",
+    Villas: "212 Flats",
+    Apartments: " 55 Apartments",
+    Offices: "69 Offices",
+    cover: "./location/city-4.png",
+  },
+  {
+    id: 5,
+    name: "Noida, Uttar Pardesh",
+    Villas: "12 Condo",
+    Apartments: " 455 Flats",
+    Offices: "07 Offices",
+    cover: "./location/city-5.png",
+  },
+  {
+    id: 6,
+    name: "Pune, India",
+    Villas: "12 Villas",
+    Apartments: " 10 Apartments",
+    Offices: "07 Offices",
+    cover: "./location/city-6.png",
+  },
+];
+
+export const footer = [
+  {
+    title: "Pages",
+    text: [
+      { list: "Home", path: "/" },
+      { list: "Property", path: "/list" },
+      { list: "Login", path: "/login" },
+      { list: "Sign In", path: "/register" },
+    ],
+  },
+  // {
+  //   title: "COMPANY",
+  //   text: [
+  //     { list: "Pro" },
+
+  //     { list: "Pricing" },
+
+  //     { list: "Login" },
+
+  //   ],
+  // },
+];

@@ -104,7 +104,7 @@ const Chat = () => {
           </div>
           <div className="sendButton">
             <input type="text" />
-            <button>Send</button>
+            <div className="sendBtn">Send</div>
           </div>
         </div>
       )}

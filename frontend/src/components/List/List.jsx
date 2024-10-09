@@ -1,9 +1,9 @@
 import React from 'react'
 import "./list.scss";
-import { listData } from '../../data/data'
+// import { listData } from '../../data/data'
 import Card from '../Card/Card'
 
-const List = () => {
+const List = ({listData}) => {
   return (
     <div className='listWrapper'>
         {

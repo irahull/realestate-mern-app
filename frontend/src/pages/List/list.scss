@@ -1,6 +1,9 @@
 @import "../../mixins.scss";
 .listSection {
   width: 100%;
+  max-width: 1350px;
+  margin: 0px auto;
+  // padding: 0px 20px;
   display: flex;
   // height: calc(100vh - 80px);
   @include md{
@@ -11,7 +14,7 @@
     height: 100%;
     flex: 3;
     padding: 0px 10px;
-    border: 1px solid red;
+    // border: 1px solid red;
     @include md{
      flex: none;
   }

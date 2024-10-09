@@ -5,10 +5,13 @@
   height: 80px;
   z-index: 5;
   position: relative;
+   max-width: 1350px;
+     margin: 0px auto;
+  // padding: 0px 20px;
   
     // background-color: red;
   @include dflex();
-  font-family: "Open Sans", sans-serif;
+  // font-family: "Open Sans", sans-serif;
   justify-content: space-between;
   .nav-left {
     flex: 3;

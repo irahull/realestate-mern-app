@@ -6,19 +6,19 @@ const getAllPost = async (req, res) => {
   console.log(query);
   try {
     const postDatas = await prisma.post.findMany({
-      where:{
-        city:query.city || undefined,
-        type:query.type || undefined,
-        property:query.property || undefined,
-        bedroom:query.bedroom || undefined,
-        price:{
+      where: {
+        city: query.city || undefined,
+        type: query.type || undefined,
+        // property:query.property || undefined,
+        // bedroom:parseInt(query.bedroom) || undefined,
+        price: {
           gte: parseInt(query.minPrice) || 0,
           lte: parseInt(query.maxPrice) || 100000,
-        }
-      }
+        },
+      },
     });
     res.status(200).json({ data: postDatas });
-    // console.log(postDatas);
+    console.log(postDatas);
   } catch (error) {
     res.status(400).json({ msg: "Failed to get all post" });
   }
@@ -98,5 +98,58 @@ const deletePost = async (req, res) => {
     res.status(400).json({ msg: "Failed to delete" });
   }
 };
+// _________________________ Saved Post _______________________________
+// const savePost = async (req, res) => {
+//   const postId = req.body.postId;
+//   const tokenUserId = req.userId;
+//   try {
+//     const spost = await prisma.savedPosts.findUnique({
+//       where: {
+//         userId_postId: {
+//           userId: tokenUserId,
+//           postId,
+//         },
+//       },
+//     });
 
-module.exports = { getAllPost, getSinglePost, addPost, updatePost, deletePost };
+//     if (spost) {
+//       prisma.savedPosts.delete({
+//         where: {
+//           id: spost.id,
+//         },
+//       });
+//       return res.status(200).json({ msg: "Post removed from saved post" });
+//     } else {
+//       await prisma.savedPosts.create({
+//         data: {
+//           userId: tokenUserId,
+//           postId,
+//         },
+//       });
+//     }
+//   } catch (error) {
+//     res.status(400).json({ msg: "Failed to delete" });
+//   }
+// };
+
+const userPosts = async (req, res) => {
+  const tokenUserId = req.params.userId;
+  try {
+    const postData = await prisma.post.findMany({
+      where: { userId: tokenUserId },
+    });
+    res.status(200).json({ data: postData });
+  } catch (error) {
+    res.status(400).json({ msg: "Failed to get  post" });
+  }
+};
+
+module.exports = {
+  getAllPost,
+  getSinglePost,
+  addPost,
+  updatePost,
+  deletePost,
+  userPosts,
+  // savePost,
+};

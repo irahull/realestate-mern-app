@@ -2,7 +2,22 @@
 .homeSection {
   width: 100%;
   height: calc(100vh - 80px);
-  font-family: "Open Sans", sans-serif;
+  // font-family: "Open Sans", sans-serif;
+  max-width: 1350px;
+  margin: 0px auto;
+  // padding: 0px 20px;
+
+  @include lg {
+    max-width: 1300px;
+  }
+  @include md {
+    // background-color: green;
+    max-width: 780px;
+  }
+  @include sm {
+    max-width: 640px;
+    background-color: white;
+  }
   //   background-color: red;
   @include dflex();
   .homeLeft {
@@ -12,22 +27,22 @@
       flex-direction: column;
       gap: 25px;
       padding-right: 100px;
-      @include md{
-          gap: 30px;
-          padding: 0px 20px;
-    }
-      @include sm{
-          gap: 20px;
-          padding: 0px 0px;
-    }
+      @include md {
+        gap: 30px;
+        padding: 0px 20px;
+      }
+      @include sm {
+        gap: 20px;
+        padding: 0px 0px;
+      }
       h1 {
         font-size: 60px;
         line-height: 1;
-        @include lg{
-            font-size: 40px;
+        @include lg {
+          font-size: 40px;
         }
-        @include sm{
-            font-size: 35px;
+        @include sm {
+          font-size: 35px;
         }
       }
       p {
@@ -55,16 +70,16 @@
     background-color: #fcf5f3;
     position: relative;
     @include dflex();
-    @include md{
-        display: none;
+    @include md {
+      display: none;
     }
     img {
       width: 115%;
       position: absolute;
       right: 0;
-      @include lg{
+      @include lg {
         width: 110%;
-    }
+      }
     }
   }
 }

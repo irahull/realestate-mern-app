@@ -1,0 +1,25 @@
+.errorWrapper {
+  width: 100%;
+  height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-image: url("/errorBg.jpg");
+//   background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  color: black;
+  span {
+    font-size: 16px;
+  }
+  .backToHome{
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px;
+    border: 1px solid #FFD500;
+cursor: pointer;
+    ;
+  }
+}

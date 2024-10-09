@@ -6,10 +6,10 @@ const types = ["buy", "rent"];
 
 const Search = () => {
   const [query, setQuery] = useState({
-    type: "buy",
-    location: "",
+    type: "rent",
+    city: "",
     minPrice: 0,
-    maxPrice: 10000,
+    maxPrice: 1000000,
   });
 
   const switchType = (type) => {
@@ -22,7 +22,7 @@ const Search = () => {
 
   return (
     <div className="searchBar">
-      <div className="type">
+      <div className="typeSelect">
         {types.map((item, type) => {
           return (
             <button
@@ -38,17 +38,17 @@ const Search = () => {
       <div className="inpBox">
         <input
           type="text"
-          name="location"
+          name="city"
           placeholder="City Location"
           className="location"
-          value={query.location}
+          value={query.city}
           onChange={handleChange}
         />
         <input
           type="number"
           name="minPrice"
           min={0}
-          max={10000}
+          max={1000000}
           placeholder="Min"
           className="minVal"
           value={query.minPrice}
@@ -58,14 +58,14 @@ const Search = () => {
           type="number"
           name="maxPrice"
           min={0}
-          max={10000}
+          max={1000000}
           placeholder="Max"
           value={query.maxPrice}
           onChange={handleChange}
           className="maxVal"
         />
         <Link
-          to={`/list?type=${query.type}&minPrice=${query.minPrice}&city=${query.location}&maxPrice=${query.maxPrice}`}
+          to={`/list?type=${query.type}&minPrice=${query.minPrice}&city=${query.city}&maxPrice=${query.maxPrice}`}
           className="searchIcon"
         >
           <img src="/search.png" alt="" />
